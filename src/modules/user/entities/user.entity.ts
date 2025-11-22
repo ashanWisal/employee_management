@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import { Employee } from '../../employee/entities/employee.entity';
 
 @Entity()
 export class User {
@@ -37,6 +38,9 @@ export class User {
 
   @Column({ name: 'is_active', default: true })
   isActive: boolean;
+
+  @OneToMany(() => Employee, (employee) => employee.user)
+  employees: Employee[];
 
   @Column({
     name: 'created_at',
