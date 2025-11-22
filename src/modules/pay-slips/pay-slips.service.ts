@@ -4,7 +4,7 @@ import { UpdatePaySlipDto } from './dto/update-pay-slip.dto';
 
 @Injectable()
 export class PaySlipsService {
-  create(createPaySlipDto: CreatePaySlipDto) {
+  create(_createPaySlipDto: CreatePaySlipDto) {
     return 'This action adds a new paySlip';
   }
 
@@ -16,7 +16,7 @@ export class PaySlipsService {
     return `This action returns a #${id} paySlip`;
   }
 
-  update(id: number, updatePaySlipDto: UpdatePaySlipDto) {
+  update(id: number, _updatePaySlipDto: UpdatePaySlipDto) {
     return `This action updates a #${id} paySlip`;
   }
 
