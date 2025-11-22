@@ -4,7 +4,7 @@ import { UpdateLeaveBalanceDto } from './dto/update-leave-balance.dto';
 
 @Injectable()
 export class LeaveBalancesService {
-  create(createLeaveBalanceDto: CreateLeaveBalanceDto) {
+  create(_createLeaveBalanceDto: CreateLeaveBalanceDto) {
     return 'This action adds a new leaveBalance';
   }
 
@@ -16,7 +16,7 @@ export class LeaveBalancesService {
     return `This action returns a #${id} leaveBalance`;
   }
 
-  update(id: number, updateLeaveBalanceDto: UpdateLeaveBalanceDto) {
+  update(id: number, _updateLeaveBalanceDto: UpdateLeaveBalanceDto) {
     return `This action updates a #${id} leaveBalance`;
   }
 

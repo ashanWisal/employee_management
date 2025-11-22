@@ -4,7 +4,7 @@ import { UpdateLeafDto } from './dto/update-leaf.dto';
 
 @Injectable()
 export class LeavesService {
-  create(createLeafDto: CreateLeafDto) {
+  create(_createLeafDto: CreateLeafDto) {
     return 'This action adds a new leaf';
   }
 
@@ -16,7 +16,7 @@ export class LeavesService {
     return `This action returns a #${id} leaf`;
   }
 
-  update(id: number, updateLeafDto: UpdateLeafDto) {
+  update(id: number, _updateLeafDto: UpdateLeafDto) {
     return `This action updates a #${id} leaf`;
   }
 

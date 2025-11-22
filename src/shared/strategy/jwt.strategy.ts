@@ -3,7 +3,14 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { UsersService } from 'src/modules/user/user.service';
-// import { UsersService } from '../../users/users.service';
+import { User } from 'src/modules/user/entities/user.entity';
+
+interface JwtPayload {
+  sub: number;
+  email: string;
+  iat?: number;
+  exp?: number;
+}
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -18,14 +25,19 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: any) {
-    const user = await this.usersService.findById(payload.sub);
-    
+  async validate(payload: JwtPayload): Promise<Omit<User, 'password'> | null> {
+    const userId = Number(payload.sub);
+    if (isNaN(userId)) {
+      return null;
+    }
+
+    const user = await this.usersService.findById(userId);
+
     if (!user || !user.isActive) {
       return null;
     }
 
-    const { password, ...result } = user;
+    const { password: _password, ...result } = user;
     return result;
   }
 }

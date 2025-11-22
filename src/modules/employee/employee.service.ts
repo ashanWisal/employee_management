@@ -4,7 +4,7 @@ import { UpdateEmployeeDto } from './dto/update-employee.dto';
 
 @Injectable()
 export class EmployeeService {
-  create(createEmployeeDto: CreateEmployeeDto) {
+  create(_createEmployeeDto: CreateEmployeeDto) {
     return 'This action adds a new employee';
   }
 
@@ -16,7 +16,7 @@ export class EmployeeService {
     return `This action returns a #${id} employee`;
   }
 
-  update(id: number, updateEmployeeDto: UpdateEmployeeDto) {
+  update(id: number, _updateEmployeeDto: UpdateEmployeeDto) {
     return `This action updates a #${id} employee`;
   }
 
